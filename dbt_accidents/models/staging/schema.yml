@@ -1,0 +1,287 @@
+version: 2
+
+sources:
+  - name: staging_caracteristic
+    database: leafy-mender-467715-s9
+    schema: data_accidents
+    tables:
+      - name: caracteristic
+  - name: staging_lieux
+    database: leafy-mender-467715-s9
+    schema: data_accidents
+    tables:
+      - name: lieux
+  - name: staging_usagers
+    database: leafy-mender-467715-s9
+    schema: data_accidents
+    tables:
+      - name: usagers
+  - name: staging_vehicule
+    database: leafy-mender-467715-s9
+    schema: data_accidents
+    tables:
+      - name: vehicule
+models:
+  - name: stg_accident_caracteristics
+    description: "Staging table for accident characteristics in France (2005–2023)"
+    columns:
+      - name: Num_Acc
+        data_type: int64
+        description: "Accident unique identifier"
+        tests:
+          - unique:
+              severity: warn
+          - not_null:
+              severity: warn
+
+      - name: jour
+        data_type: int64
+        description: "Day of accident (1–31)"
+
+      - name: mois
+        data_type: string
+        description: "Month of accident (encoded)"
+
+      - name: an
+        data_type: string
+        description: "Year of accident"
+
+      - name: hrmn
+        data_type: string
+        description: "Time of accident (HHMM)"
+
+      - name: lum
+        data_type: int64
+        description: "Lighting conditions"
+
+      - name: dep
+        data_type: string
+        description: "Department code"
+
+      - name: com
+        data_type: string
+        description: "Commune code"
+
+      - name: agg
+        data_type: int64
+        description: "Type of agglomeration"
+
+      - name: int
+        data_type: int64
+        description: "Intersection type"
+
+      - name: atm
+        data_type: int64
+        description: "Atmospheric conditions"
+
+      - name: col
+        data_type: int64
+        description: "Collision type"
+
+      - name: adr
+        data_type: string
+        description: "Address"
+
+      - name: lat
+        data_type: float64
+        description: "Latitude"
+
+      - name: long
+        data_type: float64
+        description: "Longitude"
+  - name: stg_accident_lieux
+    description: "Staging table for accident location data in France (2005–2023)"
+    columns:
+      - name: Num_Acc
+        data_type: int64
+        description: "Accident unique identifier"
+        tests:
+          - not_null:
+              severity: warn
+
+      - name: catr
+        data_type: int64
+        description: "Road category"
+
+      - name: voie
+        data_type: string
+        description: "Road number or name"
+
+      - name: v1
+        data_type: int64
+        description: "Road number (detail 1)"
+
+      - name: v2
+        data_type: string
+        description: "Road number (detail 2)"
+
+      - name: circ
+        data_type: int64
+        description: "Road configuration"
+
+      - name: nbv
+        data_type: string
+        description: "Number of lanes"
+
+      - name: vosp
+        data_type: int64
+        description: "Special lanes (bus, cycle, etc.)"
+
+      - name: prof
+        data_type: int64
+        description: "Road profile"
+
+      - name: pr
+        data_type: string
+        description: "Kilometric point"
+
+      - name: pr1
+        data_type: string
+        description: "Sub-kilometric point"
+
+      - name: plan
+        data_type: int64
+        description: "Road plan"
+
+      - name: lartpc
+        data_type: float64
+        description: "
+        "
+
+      - name: larrout
+        data_type: float64
+        description: ""
+
+      - name: surf
+        data_type: int64
+        description: "Surface condition"
+
+      - name: infra
+        data_type: int64
+        description: "Infrastructure type"
+
+      - name: situ
+        data_type: int64
+        description: "Accident situation"
+
+      - name: vma
+        data_type: int64
+        description: "Maximum authorized speed"
+  - name: stg_accident_usagers
+    description: "Staging table for accident users data in France (2005–2023)"
+    columns:
+      - name: Num_Acc
+        data_type: int64
+        description: "Accident unique identifier"
+        tests:
+          - not_null:
+              severity: warn
+
+      - name: id_usager
+        data_type: string
+        description: "User unique identifier"
+
+      - name: id_vehicule
+        data_type: string
+        description: "Linked vehicle identifier"
+
+      - name: num_veh
+        data_type: string
+        description: "Vehicle number in accident"
+
+      - name: place
+        data_type: int64
+        description: "User's position in vehicle"
+
+      - name: catu
+        data_type: int64
+        description: "Category of user (driver, passenger, pedestrian, etc.)"
+
+      - name: grav
+        data_type: int64
+        description: "Severity of injury"
+
+      - name: sexe
+        data_type: float64
+        description: "Gender of user (0: male, 1: female or similar coding)"
+
+      - name: an_nais
+        data_type: string
+        description: "Year of birth"
+
+      - name: trajet
+        data_type: int64
+        description: "Purpose of trip"
+
+      - name: secu1
+        data_type: int64
+        description: "First safety equipment used"
+
+      - name: secu2
+        data_type: int64
+        description: "Second safety equipment used"
+
+      - name: secu3
+        data_type: int64
+        description: "Third safety equipment used"
+
+      - name: locp
+        data_type: int64
+        description: "Location of pedestrian in accident"
+
+      - name: actp
+        data_type: string
+        description: "Action of pedestrian"
+
+      - name: etatp
+        data_type: int64
+        description: "Condition of pedestrian"
+  - name: stg_accident_vehicules
+    description: "Staging table for accident vehicles data in France (2005–2023)"
+    columns:
+      - name: Num_Acc
+        data_type: int64
+        description: "Accident unique identifier"
+        tests:
+          - not_null:
+              severity: warn
+
+      - name: id_vehicule
+        data_type: string
+        description: "Vehicle unique identifier"
+
+      - name: num_veh
+        data_type: string
+        description: "Vehicle number in accident"
+
+      - name: senc
+        data_type: int64
+        description: "Direction or lane of travel"
+
+      - name: catv
+        data_type: int64
+        description: "Vehicle category code"
+
+      - name: obs
+        data_type: int64
+        description: "Obstacles hit before accident"
+
+      - name: obsm
+        data_type: int64
+        description: "Obstacles hit during accident"
+
+      - name: choc
+        data_type: int64
+        description: "Point of impact"
+
+      - name: manv
+        data_type: int64
+        description: "Vehicle maneuver before accident"
+
+      - name: motor
+        data_type: int64
+        description: "Motorization info (engine type etc.)"
+
+      - name: occutc
+        data_type: int64
+        description: "Number of occupants in the vehicle"
