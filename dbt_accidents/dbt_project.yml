@@ -36,4 +36,15 @@ models:
           +materialized: view
     core:
           +materialized: table
-seeds:
+seeds:  
+  dbt_accidents:
+    departements-france:
+      +column_types:
+        code_departement: string
+        nom_departement: string
+        code_region: integer
+        nom_region: string
+    vehicle_types:
+      +column_types:
+        vehicle_code: integer
+        vehicle_label: string
