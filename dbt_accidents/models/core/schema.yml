@@ -1,0 +1,123 @@
+version: 2
+
+models:
+  - name: dim_departement
+    description: "Dimension table for French departments with names and regions"
+    columns:
+      - name: departement_code
+        description: "Department code (integer)"
+        tests:
+          - not_null
+          - unique
+      - name: departement_name
+        description: "Department name"
+        tests:
+          - not_null
+      - name: region_name
+        description: "Region name"
+
+  - name: dim_vehicle_type
+    description: "Dimension table for vehicle types with labels"
+    columns:
+      - name: vehicle_type_code
+        description: "Vehicle type code"
+        tests:
+          - not_null
+          - unique
+      - name: vehicle_type_label
+        description: "Vehicle type label in French"
+        tests:
+          - not_null
+
+  - name: dim_time
+    description: "Time dimension table with date components"
+    columns:
+      - name: date_key
+        description: "Date key"
+        tests:
+          - not_null
+          - unique
+      - name: year
+        description: "Year"
+        tests:
+          - not_null
+          - accepted_values:
+              values: [2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023]
+      - name: month
+        description: "Month"
+        tests:
+          - not_null
+          - accepted_values:
+              values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      - name: day
+        description: "Day of month"
+        tests:
+          - not_null
+
+  - name: fact_accidents
+    description: "Fact table for accidents"
+    columns:
+      - name: accident_number
+        description: "Accident unique identifier"
+        tests:
+          - not_null
+          - unique
+      - name: date_key
+        description: "Foreign key to time dimension"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_time')
+              field: date_key
+      - name: departement_code
+        description: "Foreign key to department dimension"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_departement')
+              field: departement_code
+      - name: location_speed_limit
+        description: "Speed limit at accident location"
+        tests:
+          - not_null:
+              severity: warn
+
+  - name: fact_user_injuries
+    description: "Fact table for user injuries in accidents"
+    columns:
+      - name: accident_number
+        description: "Accident identifier"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('fact_accidents')
+              field: accident_number
+      - name: id_usager
+        description: "User identifier"
+        tests:
+          - not_null
+      - name: injury_severity
+        description: "Severity of injury (1=Unharmed, 2=Killed, 3=Hospitalized, 4=Light injury)"
+        tests:
+          - not_null
+          - accepted_values:
+              values: [1, 2, 3, 4]
+              quote: false
+      - name: gender
+        description: "Gender of user"
+        tests:
+          - accepted_values:
+              values: [1, 2]
+              severity: warn
+              quote: false
+      - name: birth_year
+        description: "Birth year of user"
+        tests:
+          - not_null:
+              severity: warn
+      - name: date_key
+        description: "Foreign key to time dimension"
+        tests:
+          - relationships:
+              to: ref('dim_time')
+              field: date_key

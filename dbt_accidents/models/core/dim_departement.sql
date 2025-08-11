@@ -1,4 +1,9 @@
-{{ config(materialized='table') }}
+{{ 
+    config(
+        materialized = 'table'
+    ) 
+}}
+
 
 with departement_codes as (
     select distinct

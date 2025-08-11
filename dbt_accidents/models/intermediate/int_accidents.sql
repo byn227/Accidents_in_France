@@ -1,4 +1,8 @@
-{{ config(materialized='view') }}
+{{ 
+    config(
+        materialized = 'view'
+    ) 
+}}
 
 with caracteristiques as (
     select *
@@ -19,9 +23,9 @@ select
     l.vma as location_speed_limit,
     l.prof as road_profile,
     l.plan as road_plan,
-    l.lartpc as art_road,
-    l.larrout as road_arrangement
+    l.lartpc as median_width,
+    l.larrout as roadway_width
+
 
 from caracteristiques c
-left join lieux l
-  on c.Num_Acc = l.Num_Acc
+left join lieux l on c.Num_Acc = l.Num_Acc

@@ -64,7 +64,7 @@ models:
 
       - name: agg
         data_type: int64
-        description: "Type of agglomeration"
+        description: "In agglomeration (1: yes, 0: no)"
 
       - name: int
         data_type: int64
@@ -105,7 +105,7 @@ models:
 
       - name: voie
         data_type: string
-        description: "Road number or name"
+        description: "Road number"
 
       - name: v1
         data_type: int64
@@ -113,7 +113,7 @@ models:
 
       - name: v2
         data_type: string
-        description: "Road number (detail 2)"
+        description: "Road alphanumeric (detail 2)"
 
       - name: circ
         data_type: int64
@@ -129,7 +129,7 @@ models:
 
       - name: prof
         data_type: int64
-        description: "Road profile"
+        description: "Profil en long (describes the slope of the road at the accident location)"
 
       - name: pr
         data_type: string
@@ -145,12 +145,12 @@ models:
 
       - name: lartpc
         data_type: float64
-        description: "
-        "
+        description: "Largeur du terre-plein central (TPC) s'il existe (en m)."
 
       - name: larrout
         data_type: float64
-        description: ""
+        description: "Largeur de la chaussée affectée à la circulation des véhicules ne sont pas compris les bandes d'arrêt
+d'urgence, les TPC et les places de stationnement (en m)"
 
       - name: surf
         data_type: int64
@@ -167,6 +167,7 @@ models:
       - name: vma
         data_type: int64
         description: "Maximum authorized speed"
+
   - name: stg_accident_usagers
     description: "Staging table for accident users data in France (2005–2023)"
     columns:
@@ -195,7 +196,7 @@ models:
 
       - name: catu
         data_type: int64
-        description: "Category of user (driver, passenger, pedestrian, etc.)"
+        description: "Category of user (driver, passenger, pedestrian)"
 
       - name: grav
         data_type: int64
@@ -203,7 +204,7 @@ models:
 
       - name: sexe
         data_type: float64
-        description: "Gender of user (0: male, 1: female or similar coding)"
+        description: "Gender of user (1: male, 2: female)"
 
       - name: an_nais
         data_type: string
@@ -227,7 +228,7 @@ models:
 
       - name: locp
         data_type: int64
-        description: "Location of pedestrian in accident"
+        description: "Localisation du piéton "
 
       - name: actp
         data_type: string
@@ -256,7 +257,7 @@ models:
 
       - name: senc
         data_type: int64
-        description: "Direction or lane of travel"
+        description: "Direction of travel"
 
       - name: catv
         data_type: int64
@@ -264,11 +265,11 @@ models:
 
       - name: obs
         data_type: int64
-        description: "Obstacles hit before accident"
+        description: "Obstacle fixe heurté"
 
       - name: obsm
         data_type: int64
-        description: "Obstacles hit during accident"
+        description: "Obstacle mobile heurté"
 
       - name: choc
         data_type: int64

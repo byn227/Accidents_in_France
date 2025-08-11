@@ -1,4 +1,9 @@
-{{ config(materialized='table') }}
+{{ 
+    config(
+        materialized = 'table'
+    ) 
+}}
+
 
 with time as (
     select distinct

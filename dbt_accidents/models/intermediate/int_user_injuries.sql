@@ -1,4 +1,8 @@
-{{ config(materialized='view') }}
+{{ 
+    config(
+        materialized = 'view'
+    ) 
+}}
 
 with usagers as (
     select *
