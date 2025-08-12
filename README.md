@@ -50,7 +50,7 @@ dbt docs serve
   - `dbt_packages/` : Packages DBT externes (ex : dbt_utils)
   - `config/` : Fichiers de configuration
   - `target/` : Résultats de compilation et d'exécution DBT
-  - 'test/': Tests
+  - `test/`: Tests DBT
 - `bin/windows/` : Scripts d'installation pour Windows
 - `requirements.txt` : Liste des bibliothèques Python
 
