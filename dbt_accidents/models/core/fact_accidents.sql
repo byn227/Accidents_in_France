@@ -13,8 +13,8 @@ with accidents as (
         location_speed_limit,
         road_profile,
         road_plan,
-        art_road,
-        road_arrangement
+        median_width,
+        roadway_width
     from {{ ref('int_accidents') }}
 )
 
@@ -25,6 +25,6 @@ select
     location_speed_limit,
     road_profile,
     road_plan,
-    art_road,
-    road_arrangement
+    median_width,
+    roadway_width
 from accidents

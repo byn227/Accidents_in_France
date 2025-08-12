@@ -40,6 +40,3 @@ select
 from lieux
 where rn = 1
 
-{% if var('is_test_run', default=true) %}
-  limit 1000
-{% endif %}

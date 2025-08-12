@@ -22,7 +22,7 @@ select
   {{ dbt.safe_cast("jour", api.Column.translate_type("integer")) }} as jour,
   {{ dbt.safe_cast("hrmn", api.Column.translate_type("string")) }} as hrmn,
   {{ dbt.safe_cast("lum", api.Column.translate_type("integer")) }} as lum,
-  {{ dbt.safe_cast("dep", api.Column.translate_type("integer")) }} as dep,
+  {{ dbt.safe_cast("dep", api.Column.translate_type("string")) }} as dep,
   {{ dbt.safe_cast("agg", api.Column.translate_type("integer")) }} as agg,
   {{ dbt.safe_cast("int", api.Column.translate_type("integer")) }} as int,
   {{ dbt.safe_cast("atm", api.Column.translate_type("integer")) }} as atm,
@@ -35,8 +35,4 @@ select
 from caracteristiques
 where rn = 1
 
-{% if var('is_test_run', default=true) %}
 
-  limit 1000
-
-{% endif %}

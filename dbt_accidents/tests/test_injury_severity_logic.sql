@@ -7,6 +7,6 @@ select
 from {{ ref('fact_user_injuries') }}
 where injury_severity = 2
   and (
-    cast(birth_year as int64) > extract(year from current_date()) - 5
-    or cast(birth_year as int64) < 1900  -- born before 1900
+    cast(birth_year as int64) > extract(year from current_date()) - 1
+    or cast(birth_year as int64) < 1900 
   )

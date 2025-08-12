@@ -31,8 +31,5 @@ select
   {{ dbt.safe_cast("occutc", api.Column.translate_type("integer")) }} as occutc
 
 from vehicules
-where rn = 1
+where rn=1
 
-{% if var('is_test_run', default=true) %}
-  limit 1000
-{% endif %}

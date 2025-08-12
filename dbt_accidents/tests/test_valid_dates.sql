@@ -1,4 +1,3 @@
--- Test to ensure all dates are valid (no future dates)
 select 
     date_key,
     year,

@@ -18,4 +18,4 @@ select
     cast(an_nais as integer) as birth_year,
     trajet as user_trip_type
 from usagers
-where grav is not null
+where grav>0 and grav<5 and sexe >0 and sexe<3

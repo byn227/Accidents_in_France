@@ -17,7 +17,7 @@ with injuries as (
         a.date_key,
         a.departement_code
     from {{ ref('int_user_injuries') }} u
-    left join {{ ref('int_accidents') }} a
+    inner join {{ ref('int_accidents') }} a
       on u.accident_number = a.accident_number
 )
 
