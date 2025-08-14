@@ -4,8 +4,8 @@
 Ce projet analyse les données des accidents de la route en France à l'aide de DBT (Data Build Tool) pour modéliser, tester et documenter les données. L'objectif est de fournir des tables propres et prêtes pour l'analyse et le reporting.
 
 
-``` Architecture du projet
-```
+ ## Architecture du projet
+
 ![image](assets/system.png)
 ## Source des données
 Les données proviennent du site officiel de la Direction Interministérielle du Numérique : https://www.data.gouv.fr/datasets/bases-de-donnees-annuelles-des-accidents-corporels-de-la-circulation-routiere-annees-de-2005-a-2023/
