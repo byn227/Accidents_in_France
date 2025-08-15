@@ -16,8 +16,8 @@ Les données d’entrée et de sortie sont stockées sur GCP BigQuery.
 - Python 3.8+
 - DBT (dbt-core, dbt-utils)
 - Les bibliothèques Python listées dans `requirements.txt`
-- Système d'exploitation : Windows (scripts d'installation dédiés)
-- Base de données BigQuery(GCP)
+- Système d'exploitation: Windows (scripts d'installation dédiés)
+- Data Warehouse BigQuery(GCP)
 
 ## Installation
 
@@ -38,7 +38,7 @@ bin\windows\install_dbt_libraries.bat
 
 ### 4. Configurer DBT
 Modifiez le fichier `dbt_accidents/profiles.yml` avec les informations de connexion à votre base de données.
-Vérifiez la configuration dans `dbt_accidents/config/`.
+Verifiez la configuration du projet sur GCP dans `dbt_accidents/config/`, c'est privé. 
 
 ## Utilisation
 
