@@ -36,7 +36,7 @@ models:
           +materialized: view
     core:
           +materialized: table
-seeds:  
+seeds:
   dbt_accidents:
     departements-france:
       +column_types:

@@ -37,6 +37,7 @@ bin\windows\install_dbt_libraries.bat
 ```
 
 ### 4. Configurer DBT
+Utiliser le commande ` dbt init` pour initialiser le projet DBT.
 Modifiez le fichier `dbt_accidents/profiles.yml` avec les informations de connexion à votre base de données.
 Verifiez la configuration du projet sur GCP dans `dbt_accidents/config/`, c'est privé. 
 
@@ -46,11 +47,21 @@ Verifiez la configuration du projet sur GCP dans `dbt_accidents/config/`, c'est 
 Dans le dossier du projet DBT :
 ```cmd
 cd dbt_accidents
+dbt debug
+dbt seed
 dbt run
 dbt test
 dbt docs generate
 dbt docs serve
 ```
+
+Utiliser ` dbt seed  ` pour charger les données de seed.
+Utiliser ` dbt debug ` pour vérifier la configuration de votre projet.
+Utiliser ` dbt run ` pour exécuter le projet DBT. 
+Utiliser ` dbt test ` pour exécuter les tests.
+Utiliser ` dbt docs generate ` pour générer les documents.
+Utiliser ` dbt docs serve ` pour servir les documents.
+Utiliser ` dbt build ` pour faire run + test + snapshot + seed en une seule commande (workflow complet).
 
 ### Structure du projet
 - `dbt_accidents/` : Projet principal DBT
