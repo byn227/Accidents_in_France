@@ -55,13 +55,14 @@ dbt docs generate
 dbt docs serve
 ```
 
-Utiliser ` dbt seed  ` pour charger les données de seed.
-Utiliser ` dbt debug ` pour vérifier la configuration de votre projet.
-Utiliser ` dbt run ` pour exécuter le projet DBT. 
-Utiliser ` dbt test ` pour exécuter les tests.
-Utiliser ` dbt docs generate ` pour générer les documents.
-Utiliser ` dbt docs serve ` pour servir les documents.
-Utiliser ` dbt build ` pour faire run + test + snapshot + seed en une seule commande (workflow complet).
+- Utiliser `dbt seed` pour charger les données de seed.  
+- Utiliser `dbt debug` pour vérifier la configuration de votre projet.  
+- Utiliser `dbt run` pour exécuter le projet DBT.  
+- Utiliser `dbt test` pour exécuter les tests.  
+- Utiliser `dbt docs generate` pour générer les documents.  
+- Utiliser `dbt docs serve` pour servir les documents.  
+- Utiliser `dbt build` pour faire run + test + snapshot + seed en une seule commande (workflow complet).  
+
 
 ### Structure du projet
 - `dbt_accidents/` : Projet principal DBT
