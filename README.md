@@ -1,5 +1,12 @@
 # Accidents en France de 2005 à 2023
 
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white)
+![dbt-core](https://img.shields.io/badge/dbt--core-1.0.0-orange?logo=dbt&logoColor=white)
+![dbt-utils](https://img.shields.io/badge/dbt--utils-1.0.0-red?logo=dbt&logoColor=white)
+![GCP](https://img.shields.io/badge/Google%20Cloud-Ready-blue?logo=googlecloud&logoColor=white)
+![BigQuery](https://img.shields.io/badge/BigQuery-Ready-blue?logo=googlecloud&logoColor=white)
+
+
 ## Présentation
 Ce projet analyse les données des accidents de la route en France à l'aide de DBT (Data Build Tool) pour modéliser, tester et documenter les données. L'objectif est de fournir des tables propres et prêtes pour l'analyse et le reporting.
 
@@ -7,6 +14,7 @@ Ce projet analyse les données des accidents de la route en France à l'aide de 
  ## Architecture du projet
 
 ![image](assets/system.png)
+
 ## Source des données
 Les données proviennent du site officiel de la Direction Interministérielle du Numérique : https://www.data.gouv.fr/datasets/bases-de-donnees-annuelles-des-accidents-corporels-de-la-circulation-routiere-annees-de-2005-a-2023/
 
@@ -36,9 +44,8 @@ bin\windows\install_python_libraries.bat
 bin\windows\install_dbt_libraries.bat
 ```
 
-### 4. Configurer DBT
-Utiliser le commande ` dbt init` pour initialiser le projet DBT.
-Modifiez le fichier `dbt_accidents/profiles.yml` avec les informations de connexion à votre base de données.
+### 4. Configurer DBT 
+Modifiez le fichier `dbt_accidents/profiles.yml` avec les informations de connexion à votre base de données.  
 Verifiez la configuration du projet sur GCP dans `dbt_accidents/config/`, c'est privé. 
 
 ## Utilisation
